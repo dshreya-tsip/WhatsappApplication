@@ -1,4 +1,3 @@
-# generate_test_cases.py
 import os
 import anthropic
 from docx import Document
@@ -8,7 +7,11 @@ def load_srs(file_path):
     return "\n".join([para.text for para in doc.paragraphs if para.text.strip()])
 
 def generate_test_cases(srs_text):
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise ValueError("ANTHROPIC_API_KEY environment variable is not set")
+
+    client = anthropic.Anthropic(api_key=api_key)
 
     prompt = f"""
     You are a QA engineer. Based on the following Software Requirements Specification (SRS), generate a list of functional and non-functional test cases in a table format.
