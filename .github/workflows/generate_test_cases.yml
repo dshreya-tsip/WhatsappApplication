@@ -1,0 +1,38 @@
+# .github/workflows/generate_test_cases.yml
+
+name: Generate Test Cases
+
+on:
+  push:
+    paths:
+      - 'SRS.docx'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install anthropic python-docx
+
+      - name: Generate test cases from SRS
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate_test_cases.py
+
+      - name: Commit and push test cases
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add test_cases.md
+          git commit -m "🧪 Auto-generated test cases from SRS"
+          git push
+        continue-on-error: true
