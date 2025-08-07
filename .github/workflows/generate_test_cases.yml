@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - 'SRS.docx'
+  workflow_dispatch:
 
 jobs:
   generate:
