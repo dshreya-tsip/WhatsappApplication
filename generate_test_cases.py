@@ -23,7 +23,7 @@ def generate_test_cases(srs_text):
     """
 
     response = client.messages.create(
-        model="claude-3-opus-20240229",  # Or any Claude 3 model you have access to
+        model="claude-3-7-sonnet-20250219",  # Or any Claude 3 model you have access to
         max_tokens=1000,
         temperature=0.5,
         messages=[{"role": "user", "content": prompt}]
@@ -42,3 +42,4 @@ if __name__ == "__main__":
     # Optional: Save to file
     with open("test_cases.md", "w", encoding="utf-8") as f:
         f.write(test_cases)
+
