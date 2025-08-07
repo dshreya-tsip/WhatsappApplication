@@ -1,34 +1,34 @@
 # Test Cases for WhatsApp Application
 
 | Test Case ID | Description | Input | Expected Output | Test Type |
-|--------------|-------------|-------|-----------------|-----------|
-| F001 | Verify text message sending | Send "Hello" to a contact | Message delivered with single tick, then double tick when delivered to recipient's device, blue tick when read | Functional |
-| F002 | Verify image sharing | Share an image from gallery | Image should be delivered and visible to recipient | Functional |
-| F003 | Verify video sharing in HD | Share a video with HD quality option selected | Video should be delivered in HD quality | Functional |
-| F004 | Verify status upload | Upload an image as status | Status should be visible to contacts for 24 hours | Functional |
-| F005 | Verify status privacy settings | Set status privacy to "My Contacts except..." and select contacts | Status should be visible to all contacts except those selected | Functional |
-| F006 | Verify profile picture update | Upload a new profile picture | New profile picture should be visible to contacts based on privacy settings | Functional |
-| F007 | Verify chat backup | Initiate manual backup | Chat history should be backed up to cloud storage | Functional |
-| F008 | Verify chat restore | Reinstall app and restore from backup | All previous chats should be restored | Functional |
-| F009 | Verify media download | Receive an image and download it | Image should be saved to device gallery | Functional |
-| F010 | Verify group creation | Create a new group and add 5 contacts | Group should be created with all added contacts as members | Functional |
-| F011 | Verify UPI transaction | Send ₹100 to a contact via UPI | Money should be transferred and transaction receipt shown | Functional |
-| F012 | Verify contact blocking | Block a contact | Should not receive messages or calls from blocked contact | Functional |
-| F013 | Verify audio call | Initiate audio call to a contact | Call should connect with clear audio | Functional |
-| F014 | Verify video call | Initiate video call to a contact | Call should connect with clear video and audio | Functional |
-| F015 | Verify notification settings | Disable notifications for a specific group | No notifications should appear for messages in that group | Functional |
-| F016 | Verify message search | Search for a specific text in chat history | All messages containing the search text should be displayed | Functional |
-| F017 | Verify multi-device login | Login to WhatsApp Web while using mobile app | Both devices should show synchronized messages | Functional |
-| F018 | Verify last seen privacy | Set last seen to "Nobody" | Contacts should not see user's last seen timestamp | Functional |
-| F019 | Verify chat archiving | Archive a chat | Chat should move to archived section | Functional |
-| F020 | Verify message reactions | React with thumbs up emoji to a message | Emoji reaction should appear on the message | Functional |
-| F021 | Verify message forwarding | Forward a message to another contact | Message should be delivered with "Forwarded" label | Functional |
-| F022 | Verify starred messages | Star an important message | Message should appear in starred messages section | Functional |
-| F023 | Verify QR code contact sharing | Generate and scan QR code | Contact should be added to recipient's contacts | Functional |
-| F024 | Verify document sharing | Share a PDF document | Document should be delivered and viewable by recipient | Functional |
-| F025 | Verify voice message | Record and send voice message | Voice message should be playable by recipient | Functional |
-| NF001 | Verify message delivery time | Send message with slow network connection | Message should be delivered within 5 seconds | Non-functional |
-| NF002 | Verify app performance under load | Open app with 1000+ messages in history | App should load within 3 seconds | Non-functional |
-| NF003 | Verify end-to-end encryption | Send a message and check encryption status | Lock icon should appear indicating encrypted message | Non-functional |
-| NF004 | Verify UI consistency across platforms | Compare UI elements on Android and iOS | UI elements should be consistent with platform guidelines | Non-functional |
-| NF005 | Verify app reliability
+|-------------|-------------|-------|----------------|-----------|
+| F001 | Verify text message sending and delivery | Send "Hello" text message to a contact | Message should be delivered with proper delivery receipts (single tick, double tick) | Functional |
+| F002 | Verify read receipts functionality | Read a received message | Sender should see blue ticks indicating message was read | Functional |
+| F003 | Verify photo sharing in HD quality | Share a photo with HD quality option enabled | Photo should be delivered in HD quality to recipient | Functional |
+| F004 | Verify video sharing | Share a 30-second video | Video should be delivered and playable by recipient | Functional |
+| F005 | Verify document sharing | Share a PDF document | Document should be delivered and viewable by recipient | Functional |
+| F006 | Verify status upload | Upload a photo as status | Status should be visible to contacts for 24 hours | Functional |
+| F007 | Verify status view count | View a contact's status | View count should increment for the status owner | Functional |
+| F008 | Verify profile picture update | Change profile picture | New profile picture should be visible to contacts | Functional |
+| F009 | Verify chat backup | Initiate chat backup to cloud | Chats should be backed up successfully | Functional |
+| F010 | Verify chat restore | Restore chats from backup | All backed up chats should be restored | Functional |
+| F011 | Verify media download | Download a received image | Image should be saved to device gallery | Functional |
+| F012 | Verify group creation | Create a new group with 5 contacts | Group should be created with all added members | Functional |
+| F013 | Verify UPI transaction | Send ₹100 via UPI to a contact | Money should be transferred and transaction history updated | Functional |
+| F014 | Verify contact blocking | Block a contact | No messages or calls should be received from blocked contact | Functional |
+| F015 | Verify audio call | Initiate an audio call to a contact | Call should connect with clear audio | Functional |
+| F016 | Verify video call | Initiate a video call to a contact | Call should connect with clear video and audio | Functional |
+| F017 | Verify notification settings | Disable notifications for a specific group | No notifications should appear for messages from that group | Functional |
+| F018 | Verify message search | Search for keyword "meeting" in chats | All messages containing "meeting" should be displayed | Functional |
+| F019 | Verify multi-device login | Login to WhatsApp Web while using mobile app | Both devices should synchronize messages | Functional |
+| F020 | Verify privacy settings | Change "Last Seen" to "Nobody" | Contacts should not be able to see user's last seen status | Functional |
+| F021 | Verify chat archiving | Archive a chat | Chat should move to archived section | Functional |
+| F022 | Verify message reaction | React with 👍 to a message | Reaction should be visible to all chat participants | Functional |
+| F023 | Verify message forwarding | Forward a message to another contact | Message should be delivered with forwarded label | Functional |
+| F024 | Verify starred messages | Star an important message | Message should appear in starred messages section | Functional |
+| F025 | Verify QR code contact sharing | Scan contact's QR code | Contact should be added to address book | Functional |
+| NF001 | Verify message delivery time | Send message with slow network (2G) | Message should be delivered within 10 seconds | Non-functional |
+| NF002 | Verify app performance under load | Open app with 100+ active chats | App should load within 3 seconds | Non-functional |
+| NF003 | Verify end-to-end encryption | Send sensitive information in a message | Message should show encryption lock icon | Non-functional |
+| NF004 | Verify battery consumption | Use app for 1 hour of messaging | Battery consumption should not exceed 10% | Non-functional |
+| NF005 | Verify app compatibility | Install app on different
