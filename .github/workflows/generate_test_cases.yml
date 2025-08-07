@@ -1,5 +1,3 @@
-# .github/workflows/generate_test_cases.yml
-
 name: Generate Test Cases
 
 on:
